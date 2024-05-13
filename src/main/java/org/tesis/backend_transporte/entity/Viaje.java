@@ -16,24 +16,17 @@ public class Viaje {
     private String horaFin;
     private float precioNormal;
     private float precioDiferenciado;
-    private Long idConductor;
-    private Long idAyudante;
+    @ManyToOne
+    private Empleado conductor;
+    @ManyToOne
+    private Empleado ayudante;
+    @ManyToOne
+    private Unidad unidad;
 
     public Viaje() {
     }
 
-    public Viaje(String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Long idConductor, Long idAyudante) {
-        this.codigoViaje = codigoViaje;
-        this.fecha = fecha;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
-        this.precioNormal = precioNormal;
-        this.precioDiferenciado = precioDiferenciado;
-        this.idConductor = idConductor;
-        this.idAyudante = idAyudante;
-    }
-
-    public Viaje(Long idViaje, String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Long idConductor, Long idAyudante) {
+    public Viaje(Long idViaje, String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad) {
         this.idViaje = idViaje;
         this.codigoViaje = codigoViaje;
         this.fecha = fecha;
@@ -41,9 +34,23 @@ public class Viaje {
         this.horaFin = horaFin;
         this.precioNormal = precioNormal;
         this.precioDiferenciado = precioDiferenciado;
-        this.idConductor = idConductor;
-        this.idAyudante = idAyudante;
+        this.conductor = conductor;
+        this.ayudante = ayudante;
+        this.unidad = unidad;
     }
+
+    public Viaje(String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad) {
+        this.codigoViaje = codigoViaje;
+        this.fecha = fecha;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.precioNormal = precioNormal;
+        this.precioDiferenciado = precioDiferenciado;
+        this.conductor = conductor;
+        this.ayudante = ayudante;
+        this.unidad = unidad;
+    }
+
 
     public Long getIdViaje() {
         return idViaje;
@@ -101,19 +108,27 @@ public class Viaje {
         this.precioDiferenciado = precioDiferenciado;
     }
 
-    public Long getIdConductor() {
-        return idConductor;
+    public Empleado getConductor() {
+        return conductor;
     }
 
-    public void setIdConductor(Long idConductor) {
-        this.idConductor = idConductor;
+    public void setConductor(Empleado conductor) {
+        this.conductor = conductor;
     }
 
-    public Long getIdAyudante() {
-        return idAyudante;
+    public Empleado getAyudante() {
+        return ayudante;
     }
 
-    public void setIdAyudante(Long idAyudante) {
-        this.idAyudante = idAyudante;
+    public void setAyudante(Empleado ayudante) {
+        this.ayudante = ayudante;
+    }
+
+    public Unidad getUnidad() {
+        return unidad;
+    }
+
+    public void setUnidad(Unidad unidad) {
+        this.unidad = unidad;
     }
 }
