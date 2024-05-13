@@ -23,10 +23,13 @@ public class Viaje {
     @ManyToOne
     private Unidad unidad;
 
+    @ManyToOne
+    private Ruta ruta;
+
     public Viaje() {
     }
 
-    public Viaje(Long idViaje, String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad) {
+    public Viaje(Long idViaje, String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad, Ruta ruta) {
         this.idViaje = idViaje;
         this.codigoViaje = codigoViaje;
         this.fecha = fecha;
@@ -37,9 +40,10 @@ public class Viaje {
         this.conductor = conductor;
         this.ayudante = ayudante;
         this.unidad = unidad;
+        this.ruta = ruta;
     }
 
-    public Viaje(String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad) {
+    public Viaje(String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad, Ruta ruta) {
         this.codigoViaje = codigoViaje;
         this.fecha = fecha;
         this.horaInicio = horaInicio;
@@ -49,8 +53,8 @@ public class Viaje {
         this.conductor = conductor;
         this.ayudante = ayudante;
         this.unidad = unidad;
+        this.ruta = ruta;
     }
-
 
     public Long getIdViaje() {
         return idViaje;
@@ -131,4 +135,14 @@ public class Viaje {
     public void setUnidad(Unidad unidad) {
         this.unidad = unidad;
     }
+
+    public Ruta getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(Ruta ruta) {
+        this.ruta = ruta;
+    }
+
+
 }
