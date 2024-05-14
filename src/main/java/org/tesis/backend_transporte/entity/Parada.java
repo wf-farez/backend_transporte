@@ -13,13 +13,13 @@ public class Parada {
     private String nombreParada;
 
     private String direccion;
-    private float latitud;
-    private float longitud;
+    private String latitud;
+    private String longitud;
 
     public Parada() {
     }
 
-    public Parada(Long idParada, String nombreParada, String direccion, float latitud, float longitud) {
+    public Parada(Long idParada, String nombreParada, String direccion, String latitud, String longitud) {
         this.idParada = idParada;
         this.nombreParada = nombreParada;
         this.direccion = direccion;
@@ -27,7 +27,7 @@ public class Parada {
         this.longitud = longitud;
     }
 
-    public Parada(String nombreParada, String direccion, float latitud, float longitud) {
+    public Parada(String nombreParada, String direccion, String latitud, String longitud) {
         this.nombreParada = nombreParada;
         this.direccion = direccion;
         this.latitud = latitud;
@@ -58,19 +58,19 @@ public class Parada {
         this.direccion = direccion;
     }
 
-    public float getLatitud() {
+    public String getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(float latitud) {
+    public void setLatitud(String latitud) {
         this.latitud = latitud;
     }
 
-    public float getLongitud() {
+    public String getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(float longitud) {
+    public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
 }

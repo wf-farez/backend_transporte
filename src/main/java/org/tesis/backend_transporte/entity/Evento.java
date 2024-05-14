@@ -13,20 +13,25 @@ public class Evento {
     private String descripcion;
     private String fecha;
 
+    @ManyToOne
+    private Viaje viaje;
+
     public Evento() {
     }
 
-    public Evento(Long idEvento, String tipoEvento, String descripcion, String fecha) {
+    public Evento(Long idEvento, String tipoEvento, String descripcion, String fecha, Viaje viaje) {
         this.idEvento = idEvento;
         this.tipoEvento = tipoEvento;
         this.descripcion = descripcion;
         this.fecha = fecha;
+        this.viaje = viaje;
     }
 
-    public Evento(String tipoEvento, String descripcion, String fecha) {
+    public Evento(String tipoEvento, String descripcion, String fecha, Viaje viaje) {
         this.tipoEvento = tipoEvento;
         this.descripcion = descripcion;
         this.fecha = fecha;
+        this.viaje = viaje;
     }
 
     public Long getIdEvento() {
@@ -59,5 +64,13 @@ public class Evento {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public Viaje getViaje() {
+        return viaje;
+    }
+
+    public void setViaje(Viaje viaje) {
+        this.viaje = viaje;
     }
 }

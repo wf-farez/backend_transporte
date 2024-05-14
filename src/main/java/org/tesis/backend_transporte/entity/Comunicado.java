@@ -11,21 +11,24 @@ public class Comunicado {
 
     private String descripcion;
     private String fecha;
-
-
+    @ManyToOne
+    private Viaje viaje;
     public Comunicado() {
     }
 
-    public Comunicado(Long idComunicado, String descripcion, String fecha) {
+    public Comunicado(Long idComunicado, String descripcion, String fecha, Viaje viaje) {
         this.idComunicado = idComunicado;
         this.descripcion = descripcion;
         this.fecha = fecha;
+        this.viaje = viaje;
     }
 
-    public Comunicado(String descripcion, String fecha) {
+    public Comunicado(String descripcion, String fecha, Viaje viaje) {
         this.descripcion = descripcion;
         this.fecha = fecha;
+        this.viaje = viaje;
     }
+
 
     public Long getIdComunicado() {
         return idComunicado;
@@ -50,4 +53,11 @@ public class Comunicado {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+    public Viaje getViaje() {
+        return viaje;
+    }
+    public void setViaje(Viaje viaje) {
+        this.viaje = viaje;
+    }
+
 }
