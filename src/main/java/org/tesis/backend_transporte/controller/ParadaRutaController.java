@@ -40,4 +40,17 @@ public class ParadaRutaController {
         return this.paradaRutaService.eliminarParadaRuta(idParadaRuta);
     }
 
+    @DeleteMapping(params = "idRuta")
+    public ResponseEntity<Object> eliminarParadasRutaPorIdRuta(@RequestParam("idRuta") Long idRuta) {
+        ResponseEntity<Object> response;
+        try {
+            this.paradaRutaService.eliminarParadasRutaPorIdRuta(idRuta);
+            response = ResponseEntity.ok().build();
+        } catch (Exception e) {
+            response = ResponseEntity.badRequest().body("Error al eliminar paradas de ruta por ID de ruta: " + e.getMessage());
+        }
+        return response;
+    }
+
+
 }

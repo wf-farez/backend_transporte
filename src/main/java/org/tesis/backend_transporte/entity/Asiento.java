@@ -12,6 +12,8 @@ public class Asiento {
     private int numeroAsiento;
     @ManyToOne
     private Unidad unidad;
+
+    private Boolean estado;
     public Asiento() {
     }
 

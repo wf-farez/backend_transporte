@@ -2,18 +2,19 @@ package org.tesis.backend_transporte.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table
 public class Viaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idViaje;
-
     @Column(unique = true)
     private String codigoViaje;
-    private String fecha;
-    private String horaInicio;
-    private String horaFin;
+    private Date fecha;
+    private Date horaInicio;
+    private Date horaFin;
     private float precioNormal;
     private float precioDiferenciado;
     @ManyToOne
@@ -26,10 +27,12 @@ public class Viaje {
     @ManyToOne
     private Ruta ruta;
 
+    private Boolean estado;
+
     public Viaje() {
     }
 
-    public Viaje(Long idViaje, String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad, Ruta ruta) {
+    public Viaje(Long idViaje, String codigoViaje, Date fecha, Date horaInicio, Date horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad, Ruta ruta, Boolean estado) {
         this.idViaje = idViaje;
         this.codigoViaje = codigoViaje;
         this.fecha = fecha;
@@ -41,9 +44,10 @@ public class Viaje {
         this.ayudante = ayudante;
         this.unidad = unidad;
         this.ruta = ruta;
+        this.estado = estado;
     }
 
-    public Viaje(String codigoViaje, String fecha, String horaInicio, String horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad, Ruta ruta) {
+    public Viaje(String codigoViaje, Date fecha, Date horaInicio, Date horaFin, float precioNormal, float precioDiferenciado, Empleado conductor, Empleado ayudante, Unidad unidad, Ruta ruta, Boolean estado) {
         this.codigoViaje = codigoViaje;
         this.fecha = fecha;
         this.horaInicio = horaInicio;
@@ -54,6 +58,7 @@ public class Viaje {
         this.ayudante = ayudante;
         this.unidad = unidad;
         this.ruta = ruta;
+        this.estado = estado;
     }
 
     public Long getIdViaje() {
@@ -72,27 +77,27 @@ public class Viaje {
         this.codigoViaje = codigoViaje;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public String getHoraInicio() {
+    public Date getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(String horaInicio) {
+    public void setHoraInicio(Date horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public String getHoraFin() {
+    public Date getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(String horaFin) {
+    public void setHoraFin(Date horaFin) {
         this.horaFin = horaFin;
     }
 
@@ -144,5 +149,11 @@ public class Viaje {
         this.ruta = ruta;
     }
 
+    public Boolean getEstado() {
+        return estado;
+    }
 
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
 }

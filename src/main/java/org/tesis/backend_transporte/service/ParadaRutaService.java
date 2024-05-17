@@ -78,4 +78,13 @@ public class ParadaRutaService {
                 HttpStatus.ACCEPTED
         );
     }
+
+
+
+
+    public void eliminarParadasRutaPorIdRuta(Long idRuta) {
+        List<ParadaRuta> paradasRuta = paradaRutaRepository.findByRutaIdRuta(idRuta);
+        paradaRutaRepository.deleteAll(paradasRuta);
+    }
+
 }

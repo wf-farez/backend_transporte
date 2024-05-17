@@ -15,4 +15,5 @@ public interface ParadaRutaRepository extends JpaRepository<ParadaRuta, Long> {
     List<ParadaRuta> findByRutaIdRuta(Long idRuta);
 
 
+
 }

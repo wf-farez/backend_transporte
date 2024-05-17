@@ -14,12 +14,12 @@ public class Unidad {
 
     private String placa;
     private int cantidadAsientos;
-    private String estado;
+    private Boolean estado;
 
     public Unidad() {
     }
 
-    public Unidad(Long idUnidad, String codigoUnidad, String placa, int cantidadAsientos, String estado) {
+    public Unidad(Long idUnidad, String codigoUnidad, String placa, int cantidadAsientos, Boolean estado) {
         this.idUnidad = idUnidad;
         this.codigoUnidad = codigoUnidad;
         this.placa = placa;
@@ -27,7 +27,7 @@ public class Unidad {
         this.estado = estado;
     }
 
-    public Unidad(String codigoUnidad, String placa, int cantidadAsientos, String estado) {
+    public Unidad(String codigoUnidad, String placa, int cantidadAsientos, Boolean estado) {
         this.codigoUnidad = codigoUnidad;
         this.placa = placa;
         this.cantidadAsientos = cantidadAsientos;
@@ -66,11 +66,11 @@ public class Unidad {
         this.cantidadAsientos = cantidadAsientos;
     }
 
-    public String getEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 }
