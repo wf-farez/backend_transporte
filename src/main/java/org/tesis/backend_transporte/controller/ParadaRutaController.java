@@ -8,7 +8,8 @@ import org.tesis.backend_transporte.service.ParadaRutaService;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/paradasruta")
+@RequestMapping(path = "api/v1/paradasruta")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class ParadaRutaController {
     private final ParadaRutaService paradaRutaService ;
 

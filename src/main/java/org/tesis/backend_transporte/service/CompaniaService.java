@@ -5,53 +5,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.tesis.backend_transporte.entity.Ruta;
-import org.tesis.backend_transporte.repository.RutaRepository;
+import org.tesis.backend_transporte.entity.Compania;
+import org.tesis.backend_transporte.entity.Comunicado;
+import org.tesis.backend_transporte.repository.CompaniaRepository;
+import org.tesis.backend_transporte.repository.ComunicadoRepository;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
-public class RutaService {
-    private final RutaRepository rutaRepository;
+public class CompaniaService {
+
+    private final CompaniaRepository companiaRepository;
     HashMap<String,Object> datos;
 
     @Autowired
-    public RutaService(RutaRepository rutaRepository){
-        this.rutaRepository=rutaRepository;
+    public CompaniaService(CompaniaRepository companiaRepository){
+        this.companiaRepository =companiaRepository;
     }
 
-    public List<Ruta> obtenerRutas(){
-        return this.rutaRepository.findAll();
+    public List<Compania> obtenerCompanias(){
+        return this.companiaRepository.findAll();
     }
 
-    public Optional<Ruta> obtenerRutaByRutaId(Long idRuta) {
-        return this.rutaRepository.findRutaByIdRuta(idRuta);
-    }
+    public ResponseEntity<Object> registrarCompania(Compania compania) throws IllegalAccessException {
 
 
-    public ResponseEntity<Object> registrarRuta(Ruta ruta) throws IllegalAccessException {
-
-        Optional<Ruta> res = rutaRepository.findRutaByNombreRuta(ruta.getNombreRuta());
         datos= new HashMap<>();
+/*
 
-        if(res.isPresent() && ruta.getIdRuta()==null){
+Optional<Unidad> res = comunicadoRepository.findUnidadByPlaca(unidad.getPlaca());
+        if(res.isPresent() && unidad.getId_unidad()==null){
             datos.put("error",true);
             datos.put("messaje","Ya existe registro");
             return new ResponseEntity<>(
                     datos,
                     HttpStatus.CONFLICT
             );
-        }
+        }*/
+
         datos.put("messaje","Registro exitoso");
-        if (ruta.getIdRuta()!=null){
+        if (compania.getIdCompania()!=null){
             datos.put("messaje","Actualizado exitoso");
         }
 
-        rutaRepository.save(ruta);
-        datos.put("data",ruta);
+        companiaRepository.save(compania);
+        datos.put("data",compania);
 
         return new ResponseEntity<>(
                 datos,
@@ -59,8 +59,8 @@ public class RutaService {
         );
     }
 
-    public ResponseEntity<Object> eliminarRuta(Long id){
-        boolean existe=this.rutaRepository.existsById(id);
+    public ResponseEntity<Object> eliminarCompania(Long id){
+        boolean existe=this.companiaRepository.existsById(id);
         datos=new HashMap<>();
         if (!existe){
             datos.put("error",true);
@@ -70,7 +70,7 @@ public class RutaService {
                     HttpStatus.CONFLICT
             );
         }
-        rutaRepository.deleteById(id);
+        companiaRepository.deleteById(id);
         datos.put("messaje","Registro Eliminado");
         return new ResponseEntity<>(
                 datos,

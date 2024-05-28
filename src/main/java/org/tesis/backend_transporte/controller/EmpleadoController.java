@@ -8,7 +8,8 @@ import org.tesis.backend_transporte.service.EmpleadoService;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/empleados")
+@RequestMapping(path = "api/v1/empleados")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class EmpleadoController {
     private final EmpleadoService empleadoService ;
 

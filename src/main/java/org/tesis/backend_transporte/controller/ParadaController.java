@@ -10,7 +10,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "api/paradas")
+@RequestMapping(path = "api/v1/paradas")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class ParadaController {
     private final ParadaService paradaService ;
 

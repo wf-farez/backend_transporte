@@ -9,7 +9,8 @@ public class Ruta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRuta;
 
-    private String nombreCompania;
+    @ManyToOne
+    private Compania compania;
 
     @Column(unique = true)
     private String nombreRuta;
@@ -20,16 +21,18 @@ public class Ruta {
     public Ruta() {
     }
 
-    public Ruta(Long idRuta, String nombreCompania, String nombreRuta, String origenRuta, String destinoRuta) {
+    public Ruta(Long idRuta, Compania compania, String nombreRuta, String origenRuta, String destinoRuta) {
         this.idRuta = idRuta;
-        this.nombreCompania = nombreCompania;
+
+        this.compania = compania;
         this.nombreRuta = nombreRuta;
         this.origenRuta = origenRuta;
         this.destinoRuta = destinoRuta;
     }
 
-    public Ruta(String nombreCompania, String nombreRuta, String origenRuta, String destinoRuta) {
-        this.nombreCompania = nombreCompania;
+    public Ruta( Compania compania, String nombreRuta, String origenRuta, String destinoRuta) {
+
+        this.compania = compania;
         this.nombreRuta = nombreRuta;
         this.origenRuta = origenRuta;
         this.destinoRuta = destinoRuta;
@@ -43,12 +46,15 @@ public class Ruta {
         this.idRuta = idRuta;
     }
 
-    public String getNombreCompania() {
-        return nombreCompania;
+
+
+
+    public Compania getCompania() {
+        return compania;
     }
 
-    public void setNombreCompania(String nombreCompania) {
-        this.nombreCompania = nombreCompania;
+    public void setCompania(Compania compania) {
+        this.compania = compania;
     }
 
     public String getNombreRuta() {

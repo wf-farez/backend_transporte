@@ -11,7 +11,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "api/comunicados")
+@RequestMapping(path = "api/v1/comunicados")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class ComunicadoController {
     private final ComunicadoService comunicadoService ;
 

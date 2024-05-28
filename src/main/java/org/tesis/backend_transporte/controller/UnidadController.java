@@ -3,6 +3,7 @@ package org.tesis.backend_transporte.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.tesis.backend_transporte.entity.Asiento;
 import org.tesis.backend_transporte.entity.Unidad;
 import org.tesis.backend_transporte.service.UnidadService;
 
@@ -11,7 +12,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "api/unidades")
+@RequestMapping(path = "api/v1/unidades")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class UnidadController {
     private final UnidadService unidadService ;
 
@@ -38,4 +40,11 @@ public class UnidadController {
     public ResponseEntity<Object> eliminarUnidad( @PathVariable("idUnidad") Long idUnidad){
         return this.unidadService.eliminarUnidad(idUnidad);
     }
+/*
+    @PostMapping
+    public ResponseEntity<Object> registrarAsiento(@RequestBody Asiento asiento) throws IllegalAccessException {
+        return this.unidadService.registrarAsientos(asiento);
+    }
+
+ */
 }

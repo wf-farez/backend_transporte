@@ -12,7 +12,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "api/viajes")
+@RequestMapping(path = "api/v1/viajes")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class ViajeController {
     private final ViajeService viajeService ;
 
@@ -39,4 +40,10 @@ public class ViajeController {
     public ResponseEntity<Object> eliminarViaje( @PathVariable("idViaje") Long idViaje){
         return this.viajeService.eliminarViaje(idViaje);
     }
+
+
+
+
+
+
 }
