@@ -31,6 +31,11 @@ public class AsientoService {
         return this.asientoRepository.findAll();
     }
 
+
+    public List<Asiento> obtenerAsientosUnidadByUnidadId(Long idUnidad) {
+        return this.asientoRepository.findByUnidadIdUnidad(idUnidad);
+    }
+
     public ResponseEntity<Object> registrarAsiento(Asiento asiento) throws IllegalAccessException {
 
         datos= new HashMap<>();

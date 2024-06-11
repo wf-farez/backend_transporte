@@ -4,36 +4,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.tesis.backend_transporte.entity.Asiento;
-import org.tesis.backend_transporte.entity.ParadaRuta;
+import org.tesis.backend_transporte.entity.Boleto;
 import org.tesis.backend_transporte.service.AsientoService;
+import org.tesis.backend_transporte.service.BoletoService;
+
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/asientos")
+@RequestMapping(path = "api/v1/boletos")
 @CrossOrigin(origins = {"http://localhost:4200"})
-public class AsientoController {
-    private final AsientoService asientoService ;
+public class BoletoController {
+    private final BoletoService boletoService ;
     @Autowired
-    public AsientoController(AsientoService asientoService) {
-        this.asientoService = asientoService;
+    public BoletoController(BoletoService boletoService) {
+        this.boletoService= boletoService;
     }
 
     @GetMapping
-    public List<Asiento> obtenerAsientos(){
-        return this.asientoService.obtenerAsientos();
-    }
-
-
-    @GetMapping(params = "idUnidad")
-    public List<Asiento> obtenerAsientosUnidadByUnidadId(@RequestParam("idUnidad") Long idUnidad) {
-        return this.asientoService.obtenerAsientosUnidadByUnidadId(idUnidad);
+    public List<Boleto> obtenerBoletos(){
+        return this.boletoService.obtenerBoletos();
     }
 
     @PostMapping
-    public ResponseEntity<Object> registrarAsiento(@RequestBody Asiento asiento) throws IllegalAccessException {
-        return this.asientoService.registrarAsiento(asiento);
+    public ResponseEntity<Object> registrarBoleto(@RequestBody Boleto boleto) throws IllegalAccessException {
+        return this.boletoService.registrarBoleto(boleto);
     }
 
+
+/*
     @PutMapping
     public ResponseEntity<Object> actualizarAsiento(@RequestBody Asiento asiento) throws IllegalAccessException {
         return this.asientoService.registrarAsiento(asiento);
@@ -55,5 +53,5 @@ public class AsientoController {
         }
         return response;
     }
-
+*/
 }
